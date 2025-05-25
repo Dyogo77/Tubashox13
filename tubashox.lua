@@ -1,91 +1,73 @@
-Tranquilo, Dyogo! Vou te explicar direitinho como criar o arquivo no GitHub, passo a passo, pra você conseguir subir o script tubashox.lua no seu repositório, beleza?
+--[[ 
+ ████████╗██╗   ██╗██████╗  █████╗ ███████╗██╗  ██╗ ██████╗ ██╗  ██╗
+ ╚══██╔══╝██║   ██║██╔══██╗██╔══██╗██╔════╝██║  ██║██╔═══██╗██║ ██╔╝
+    ██║   ██║   ██║██████╔╝███████║███████╗███████║██║   ██║█████╔╝ 
+    ██║   ██║   ██║██╔═══╝ ██╔══██║╚════██║██╔══██║██║   ██║██╔═██╗ 
+    ██║   ╚██████╔╝██║     ██║  ██║███████║██║  ██║╚██████╔╝██║  ██╗
+    ╚═╝    ╚═════╝ ╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝
+              Script Oficial do Canal Dyogo e Davi
+--]]
 
+-- GUI básica com opções brabas
+local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0, 300, 0, 350)
+Frame.Position = UDim2.new(0, 100, 0, 100)
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderSizePixel = 0
+Frame.Active = true
+Frame.Draggable = true
 
----
+local UICorner = Instance.new("UICorner", Frame)
+UICorner.CornerRadius = UDim.new(0, 12)
 
-Passo a passo: Como criar arquivo no GitHub
+local function addButton(text, callback, y)
+    local btn = Instance.new("TextButton", Frame)
+    btn.Size = UDim2.new(0, 280, 0, 40)
+    btn.Position = UDim2.new(0, 10, 0, y)
+    btn.Text = text
+    btn.TextColor3 = Color3.fromRGB(255,255,255)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    btn.Font = Enum.Font.GothamBold
+    btn.TextSize = 14
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 10)
+    btn.MouseButton1Click:Connect(callback)
+end
 
+-- Funções principais do Tubashox V14
 
----
+local function autoFarm()
+    print("Farm automático ativado!")
+    -- Aqui vai o auto-farm real do jogo
+end
 
-1. Acesse o GitHub e faça login na sua conta (Dyogo77):
-https://github.com/login
+local function teleportIlha()
+    print("Teleportando para a ilha escolhida!")
+    -- Código de teleporte aqui
+end
 
+local function farmBoss()
+    print("Procurando e farmando bosses!")
+    -- Código do boss farm
+end
 
----
+local function fruitSniper()
+    print("Modo fruta sniper ON!")
+    -- Código para detectar e pegar frutas
+end
 
-2. Crie um repositório novo:
+-- Botões Tubashox Style
+addButton("Auto Farmar", autoFarm, 20)
+addButton("Teleportar p/ Ilha", teleportIlha, 70)
+addButton("Farmar Boss", farmBoss, 120)
+addButton("Sniper de Frutas", fruitSniper, 170)
 
-Clique no botão verde “New” ou “Novo repositório” (fica no topo direito da sua página inicial do GitHub)
-
-No campo Repository name digite exatamente:
-tubashox
-
-Deixe público (Public)
-
-Pode deixar sem README, sem .gitignore, sem license (a gente não precisa agora)
-
-Clique em Create repository
-
-
-
----
-
-3. Agora você está na página do repositório “tubashox” vazio. Vamos criar o arquivo:
-
-Clique no botão Add file (Adicionar arquivo), logo acima da lista de arquivos, e selecione Create new file (Criar novo arquivo)
-
-No campo Name your file... digite:
-tubashox.lua
-
-No espaço abaixo, cole o código do script que eu te passei (aquele grandão que tem tudo)
-
-
-
----
-
-4. Depois de colar o código:
-
-Lá embaixo, em Commit new file, você pode deixar a mensagem padrão (ex: "Add tubashox.lua script")
-
-Clique no botão verde Commit new file
-
-
-
----
-
-5. Pronto! O arquivo tubashox.lua já está no seu repositório tubashox!
-
-
----
-
-Agora pega o link raw do arquivo para usar no executor:
-
-1. Na página do arquivo tubashox.lua clique em Raw (botão no canto superior direito do código)
-
-
-2. Vai abrir só o código puro na página — copie o endereço da barra do navegador (URL)
-
-
-
-Esse link vai ser tipo:
-
-https://raw.githubusercontent.com/Dyogo77/tubashox/main/tubashox.lua
-
-
----
-
-Como usar no Delta Executor:
-
-No Delta, cola exatamente isso:
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dyogo77/tubashox/main/tubashox.lua"))()
-
-
----
-
-Qualquer dúvida me chama aqui!
-Vou te ajudar a usar até virar tubarão ninja do Blox Fruits!
-
-Quer que eu te faça um mini tutorial em PDF ou imagens pra você guardar?
-
+-- Estilinho pro canal Dyogo e Davi
+local label = Instance.new("TextLabel", Frame)
+label.Text = "Tubashox v14 - Dyogo & Davi"
+label.Font = Enum.Font.FredokaOne
+label.TextSize = 18
+label.Size = UDim2.new(0, 280, 0, 30)
+label.Position = UDim2.new(0, 10, 0, 300)
+label.TextColor3 = Color3.fromRGB(0, 200, 255)
+label.BackgroundTransparency = 1
